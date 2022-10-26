@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -38,15 +40,15 @@ public class AccountController {
     }
 
     @GetMapping("/{id}")
-//    @ResponseStatus(code = HttpStatus.OK)
     public ResponseEntity<AccountResponseDto> account(@PathVariable Long id) {
         return ResponseEntity
                 .ok(accountService.getAccountById(id));
     }
 
     @PostMapping
-    public ResponseEntity<AccountResponseDto> addAccount(@RequestBody AccountRequestDto account) {
-        return new ResponseEntity<>(accountService.AddAccount(account), HttpStatus.CREATED);
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public AccountResponseDto addAccount(@RequestBody @Valid AccountRequestDto account) {
+        return accountService.AddAccount(account);
     }
 
     @PutMapping("/{id}")

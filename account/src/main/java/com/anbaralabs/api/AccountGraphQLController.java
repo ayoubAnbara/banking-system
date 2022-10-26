@@ -2,9 +2,11 @@ package com.anbaralabs.api;
 
 import com.anbaralabs.dto.AccountRequestDto;
 import com.anbaralabs.dto.AccountResponseDto;
+import com.anbaralabs.dto.CustomerResponseDto;
 import com.anbaralabs.entities.Account;
 import com.anbaralabs.repositories.AccountRepo;
 import com.anbaralabs.service.AccountService;
+import com.anbaralabs.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
@@ -22,31 +24,39 @@ import java.util.List;
 public class AccountGraphQLController {
     private final AccountRepo accountRepo;
     private final AccountService accountService;
+    private final CustomerService customerService;
 
     @QueryMapping
-    public List<AccountResponseDto> accountsList(){
+    public List<AccountResponseDto> accountsList() {
         return accountService.getAccounts();
     }
 
 
     @QueryMapping
-    public AccountResponseDto accountById(@Argument Long id){
+    public AccountResponseDto accountById(@Argument Long id) {
         return accountService.getAccountById(id);
     }
 
     @MutationMapping
-    public AccountResponseDto addAccount(@Argument AccountRequestDto accountRequestDto){
+    public AccountResponseDto addAccount(@Argument AccountRequestDto accountRequestDto) {
         return accountService.addAccount(accountRequestDto);
 
     }
+
     @MutationMapping
-    public AccountResponseDto updateAccount(@Argument Long id,@Argument AccountRequestDto accountRequestDto){
-        return accountService.updateAccount(id,accountRequestDto);
+    public AccountResponseDto updateAccount(@Argument Long id, @Argument AccountRequestDto accountRequestDto) {
+        return accountService.updateAccount(id, accountRequestDto);
 
     }
+
     @MutationMapping
-    public void deleteAccount(@Argument Long id){
-         accountService.deleteAccount(id);
+    public void deleteAccount(@Argument Long id) {
+        accountService.deleteAccount(id);
+    }
+
+    @QueryMapping
+    public List<CustomerResponseDto> getCustomers() {
+        return customerService.getCustomers();
     }
 }
 /*record AccountDto(BigDecimal balance,

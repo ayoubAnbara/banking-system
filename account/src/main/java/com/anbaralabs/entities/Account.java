@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.ManyToAny;
 import org.hibernate.annotations.Where;
 import org.springframework.format.annotation.NumberFormat;
 
@@ -14,6 +15,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.PositiveOrZero;
 import java.math.BigDecimal;
@@ -48,6 +50,9 @@ public class Account extends Auditable<String> {
     private AccountType type;
 
     private boolean deleted = Boolean.FALSE;
+
+    @ManyToOne
+    private Customer customer;
 
     public Account(Long id, BigDecimal balance, Currency currency, AccountType type) {
         this.id = id;

@@ -1,6 +1,7 @@
 type Query{
     accountsList : [AccountResponseDto],
-    accountById(id:Int): AccountResponseDto
+    accountById(id:Int): AccountResponseDto,
+    getCustomers: [CustomerResponseDto]
 }
 type Mutation{
     addAccount(accountRequestDto: AccountRequestDto): AccountResponseDto,
@@ -17,7 +18,8 @@ type AccountResponseDto{
     balance: Float,
     currency: Currency,
     createdDate: Float
-    type: AccountType
+    type: AccountType,
+    customer:Customer
 }
 enum AccountType {
     CURRENT
@@ -28,3 +30,16 @@ enum Currency {
     EUR
     USD
 }
+
+type Customer{
+    id: ID,
+    name:String,
+    account: [AccountResponseDto]
+}
+
+type CustomerResponseDto{
+     id: ID,
+    name: String,
+    account: [AccountResponseDto]
+}
+

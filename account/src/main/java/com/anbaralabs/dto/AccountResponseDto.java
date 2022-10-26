@@ -26,5 +26,6 @@ public class AccountResponseDto {
     private Currency currency;
     private AccountType type;
     private Date createdDate;
+    private CustomerResponseDto customer;
 
 }

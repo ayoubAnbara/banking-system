@@ -18,7 +18,7 @@ import java.util.Optional;
  */
 public interface AccountRepo extends JpaRepository<Account,Long> {
     // =?1
-    @Query("SELECT a.id, a.balance, a.type, a.currency,a.createdDate FROM Account a WHERE a.id=:id")
+    @Query("SELECT new Account(a.id, a.balance,  a.currency,a.type,a.createdDate) FROM Account a WHERE a.id=:id")
     Optional<Account> findById(@Param("id") Long id);
 
     @Query(value = "SELECT new Account (a.id, a.balance,a.currency, a.type,a.createdDate) FROM Account a")

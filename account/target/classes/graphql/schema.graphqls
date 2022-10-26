@@ -1,0 +1,30 @@
+type Query{
+    accountsList : [AccountResponseDto],
+    accountById(id:Int): AccountResponseDto
+}
+type Mutation{
+    addAccount(accountRequestDto: AccountRequestDto): AccountResponseDto,
+    updateAccount(id: Int, accountRequestDto: AccountRequestDto): AccountResponseDto,
+    deleteAccount(id: Int): String
+}
+input AccountRequestDto{
+    balance: Float,
+    currency: Currency,
+    type: AccountType
+}
+type AccountResponseDto{
+    id: Int,
+    balance: Float,
+    currency: Currency,
+    createdDate: Float
+    type: AccountType
+}
+enum AccountType {
+    CURRENT
+    SAVING
+}
+enum Currency {
+    MAD
+    EUR
+    USD
+}

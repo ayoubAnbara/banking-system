@@ -3,8 +3,6 @@ package com.anbaralabs.service;
 import com.anbaralabs.dto.AccountRequestDto;
 import com.anbaralabs.dto.AccountResponseDto;
 import com.anbaralabs.entities.Account;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -18,7 +16,7 @@ public interface AccountService {
 
     AccountResponseDto getAccountById(Long id);
 
-    AccountResponseDto AddAccount(AccountRequestDto accountDto);
+    AccountResponseDto addAccount(AccountRequestDto accountDto);
 
     void deleteAccount(Long id);
 

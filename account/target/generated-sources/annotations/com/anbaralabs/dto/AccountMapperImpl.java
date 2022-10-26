@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-10-26T13:23:13+0100",
+    date = "2022-10-26T14:09:35+0100",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 17.0.2 (Oracle Corporation)"
 )
 @Component
@@ -24,6 +24,7 @@ public class AccountMapperImpl implements AccountMapper {
         accountResponseDto.balance( account.getBalance() );
         accountResponseDto.currency( account.getCurrency() );
         accountResponseDto.type( account.getType() );
+        accountResponseDto.createdDate( account.getCreatedDate() );
 
         return accountResponseDto.build();
     }

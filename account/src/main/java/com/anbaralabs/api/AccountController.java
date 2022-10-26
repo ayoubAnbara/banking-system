@@ -48,7 +48,7 @@ public class AccountController {
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
     public AccountResponseDto addAccount(@RequestBody @Valid AccountRequestDto account) {
-        return accountService.AddAccount(account);
+        return accountService.addAccount(account);
     }
 
     @PutMapping("/{id}")

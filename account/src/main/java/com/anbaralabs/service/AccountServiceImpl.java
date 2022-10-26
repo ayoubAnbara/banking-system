@@ -56,7 +56,7 @@ public class AccountServiceImpl implements AccountService {
 
 
     @Override
-    public AccountResponseDto AddAccount(AccountRequestDto accountDto) {
+    public AccountResponseDto addAccount(AccountRequestDto accountDto) {
         Account accountAdded = accountRepo.save(accountMapper.accountRequestDtoToAccount(accountDto));
         return accountMapper.accountToAccountResponseDto(accountAdded);
     }

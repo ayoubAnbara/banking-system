@@ -5,7 +5,6 @@ import com.anbaralabs.dto.AccountRequestDto;
 import com.anbaralabs.entities.AccountType;
 import com.anbaralabs.entities.Currency;
 import com.anbaralabs.service.AccountService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
@@ -28,10 +27,10 @@ public class Initializer {
     }
 
     public void initData(){
-        accountService.AddAccount(new AccountRequestDto(BigDecimal.valueOf(2000), Currency.EUR, AccountType.SAVING));
-        accountService.AddAccount(new AccountRequestDto(BigDecimal.valueOf(4000), Currency.MAD, AccountType.SAVING));
-        accountService.AddAccount(new AccountRequestDto(BigDecimal.valueOf(6700), Currency.USD, AccountType.CURRENT));
-        accountService.AddAccount(new AccountRequestDto(BigDecimal.valueOf(25500), Currency.EUR, AccountType.CURRENT));
+        accountService.addAccount(new AccountRequestDto(BigDecimal.valueOf(2000), Currency.EUR, AccountType.SAVING));
+        accountService.addAccount(new AccountRequestDto(BigDecimal.valueOf(4000), Currency.MAD, AccountType.SAVING));
+        accountService.addAccount(new AccountRequestDto(BigDecimal.valueOf(6700), Currency.USD, AccountType.CURRENT));
+        accountService.addAccount(new AccountRequestDto(BigDecimal.valueOf(25500), Currency.EUR, AccountType.CURRENT));
     }
 
     @Bean

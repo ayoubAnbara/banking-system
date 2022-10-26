@@ -25,6 +25,6 @@ public class AccountResponseDto {
     private BigDecimal balance;
     private Currency currency;
     private AccountType type;
-    private Date CreatedDate;
+    private Date createdDate;
 
 }

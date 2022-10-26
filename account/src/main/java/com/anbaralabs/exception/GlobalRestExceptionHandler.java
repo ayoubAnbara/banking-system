@@ -7,7 +7,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
  * @author Ayoub Anbara
  */
 @RestControllerAdvice
-public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
+public class GlobalRestExceptionHandler extends ResponseEntityExceptionHandler {
 
 
    /* @ExceptionHandler(Exception.class)

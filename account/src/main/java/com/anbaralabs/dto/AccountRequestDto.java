@@ -14,6 +14,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
@@ -33,10 +34,12 @@ public class AccountRequestDto {
 
 
 //    @Size(min = 1, max = 10)
+    @NotEmpty(message = "currency can not empty")
     private Currency currency;
 
 
 //    @Size(min = 1, max = 20)
+    @NotEmpty(message = "AccountType can not empty")
     private AccountType type;
 
 }

@@ -1,0 +1,21 @@
+server:
+  port: ${port:8070}
+#  servlet:
+#    context-path: /account
+
+spring:
+  application:
+    name: ACCOUNT-SERVICE
+  datasource:
+    password: ${springDatasourcePassword}
+    url: ${springDatasourceUrl}
+    username: ${springDatasourceUsername}
+  profiles:
+    active: '@active.profile@'
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: false

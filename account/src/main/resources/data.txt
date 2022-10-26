@@ -1,0 +1,1 @@
+insert into account(id,balance,currency,type) values ('id_1',2222,'EURO','CURRENT')
